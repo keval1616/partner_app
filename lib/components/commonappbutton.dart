@@ -58,7 +58,7 @@ class CommonAppButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(borderRadius ?? 100),
         onTap: (buttonType == ButtonType.enable) ? (onTap ?? () {}) : () {},
         child: Container(
-          height: height ?? 54,
+          height: height ?? 50,
           width: width ?? double.infinity,
           decoration: BoxDecoration(
               border: border,
@@ -77,7 +77,7 @@ class CommonAppButton extends StatelessWidget {
                   child: Text(
                     text!,
                     style: style ??
-                        const TextStyle(fontFamily: 'inter').normal16w500.textColor(
+                        const TextStyle(fontFamily: 'inter').normal14w500.textColor(
                             (buttonType == ButtonType.disable)
                                 ? Colors.black45
                                 : Colors.white),
@@ -90,3 +90,5 @@ class CommonAppButton extends StatelessWidget {
     );
   }
 }
+
+

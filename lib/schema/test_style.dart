@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class TxtFontFamily {
   static const String gilroy = "gilroy";
   static const String inter = "inter";
+  static const String Oswald = "Oswald";
 }
 
 extension TextStyleExtensions on TextStyle {
@@ -15,8 +16,23 @@ extension TextStyleExtensions on TextStyle {
     letterSpacing: 0.0,
     weight: FontWeight.w500,
   );
-  TextStyle get normal16 => customStyle(
+  TextStyle get normal25w600 => customStyle(
+    fontSize: 25,
+    letterSpacing: 0.0,
+    weight: FontWeight.w600,
+  );
+  TextStyle get normal30w600 => customStyle(
+    fontSize: 30,
+    letterSpacing: 0.0,
+    weight: FontWeight.w600,
+  );
+  TextStyle get normal60w400 => customStyle(
     fontSize: 16,
+    letterSpacing: 0.0,
+    weight: FontWeight.w400,
+  );
+  TextStyle get normal14w400 => customStyle(
+    fontSize: 14,
     letterSpacing: 0.0,
     weight: FontWeight.w400,
   );
@@ -55,7 +71,7 @@ extension TextStyleExtensions on TextStyle {
     letterSpacing: 0.0,
     weight: FontWeight.w400,
   );
-  TextStyle get normal14w400 => customStyle(
+  TextStyle get normal14w6700 => customStyle(
     fontSize: 14,
     letterSpacing: 0.0,
     weight: FontWeight.w400,
