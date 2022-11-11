@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:partner_app/modules/homescreen/bottomtabbar/tabs/aboutustab/aboutuscontroller.dart';
 
 
 class AboutUsTab extends StatefulWidget {

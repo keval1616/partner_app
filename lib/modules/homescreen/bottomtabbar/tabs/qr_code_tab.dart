@@ -1,8 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:gymui/utils.dart';
+
 import 'package:marquee/marquee.dart';
+import 'package:partner_app/utils/historyutils.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class QrCodeTab extends StatefulWidget {

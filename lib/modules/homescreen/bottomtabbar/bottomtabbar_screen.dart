@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:gymui/tabs/about_us_tab.dart';
-import 'package:gymui/tabs/history_tab.dart';
-import 'package:gymui/tabs/qr_code_tab.dart';
-import 'package:gymui/utils.dart';
+import 'package:partner_app/modules/homescreen/home_screen.dart';
+
+import 'tabs/aboutustab/about_us_tab.dart';
+import 'tabs/historytab/history_tab.dart';
+import 'tabs/qr_code_tab.dart';
+
 
 class BottomTabBar extends StatefulWidget {
   const BottomTabBar({super.key});
@@ -12,11 +14,11 @@ class BottomTabBar extends StatefulWidget {
 }
 
 class _BottomTabBarState extends State<BottomTabBar> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
 
   static const List<Widget> _widgetOptions = <Widget>[
     AboutUsTab(),
-    QrCodeTab(),
+    HomeScreen(),
     HistoryTab()
   ];
 

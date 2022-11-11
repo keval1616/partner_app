@@ -88,7 +88,7 @@ crossAxisAlignment: CrossAxisAlignment.start,
                       onTap: (){
                         Get.toNamed(AppRouter.forgotPasswordScreen);
                       },
-                      child: Text("Forgot Password?", textAlign: TextAlign.center,style: const TextStyle(fontFamily: TxtFontFamily.inter).normal16w600.textColor(Colors.green)))),
+                      child: Text("Forgot Password?", textAlign: TextAlign.center,style: const TextStyle(fontFamily: TxtFontFamily.inter,color: AppColor.buttoncolor).normal16w600.textColor(Colors.green)))),
               SizedBox(height: 15),
               Obx(() =>
                 CommonAppButton(
@@ -103,7 +103,7 @@ crossAxisAlignment: CrossAxisAlignment.start,
                       : ButtonType.disable,
                   borderRadius: 100,
                   onTap: () async {
-Get.toNamed(AppRouter.homeScreen);
+Get.toNamed(AppRouter.bottomTabBar);
                   },
                   text: "LOG IN  >",
                 ),

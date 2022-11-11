@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gymui/gyms.dart';
-import 'package:gymui/scareens/gym_details.dart';
-import 'package:gymui/utils.dart';
-import 'package:gymui/widgets/height_spacer.dart';
+import 'package:partner_app/modules/homescreen/scareens/gym_details.dart';
+import 'package:partner_app/utils/gyms.dart';
+import 'package:partner_app/utils/historyutils.dart';
 
 class ViewHistory extends StatefulWidget {
   final String name;
@@ -44,7 +43,7 @@ class _ViewHistoryState extends State<ViewHistory> {
                     style: const TextStyle(
                         fontSize: 16.0, fontWeight: FontWeight.bold),
                   ),
-                  const HeightSpacer(height: 10.0),
+                  const SizedBox(height: 10.0),
                   const Text(
                     'Visited:',
                     style:
@@ -59,7 +58,7 @@ class _ViewHistoryState extends State<ViewHistory> {
               )
             ],
           ),
-          const HeightSpacer(height: 10.0),
+          const SizedBox(height: 10.0),
           Text(
             gyms.address,
             style: const TextStyle(fontSize: 16.0, fontWeight: FontWeight.w400),
@@ -121,7 +120,7 @@ class _ViewHistoryState extends State<ViewHistory> {
                         fontWeight: FontWeight.w600)),
               ]),
             ),
-            const HeightSpacer(height: 20.0),
+            const SizedBox(height: 20.0),
             Expanded(
                 child: ListView.builder(
                     itemCount: Utlis.gyms.length,

@@ -64,7 +64,7 @@ class CommonAppButton extends StatelessWidget {
               border: border,
               color: buttonType == ButtonType.disable
               ? Colors.transparent
-              : Colors.green,
+              : AppColor.buttoncolor,
               borderRadius: BorderRadius.circular(borderRadius ?? 100),
               boxShadow: boxShadow),
           child: Row(

@@ -6,7 +6,7 @@ abstract class AppColor {
   static const primary = Color(0xFF3C096C);
   static const greyDark1 = Color(0xFF818488);
   static const red = Color(0xFFEB5757);
-  static const greenUnread = Color(0xff4ED39D);
+  static const buttoncolor = Color(0xff25AB75);
   static const shadowColor = Color(0xffBABABA);
 
   //single color for world street app................

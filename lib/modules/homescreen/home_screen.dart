@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:partner_app/app_route.dart';
+import 'package:partner_app/modules/homescreen/mydrawer.dart';
+import 'package:partner_app/schema/appcolor.dart';
 import 'package:partner_app/schema/test_style.dart';
 import 'package:partner_app/utils/images.dart';
 
@@ -16,6 +18,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
 
+      drawer: MyDrawer(),
+      backgroundColor: AppColor.white,
       body: Padding(
         padding: const EdgeInsets.only(left: 24.0, right: 24, top: 60),
         child: SingleChildScrollView(
@@ -24,23 +28,17 @@ class _HomeScreenState extends State<HomeScreen> {
               Row(
                 children: [
                   Image.asset(
-                    ImageConstant.notification,
-                    width: 65,
-                    height: 65,
-                  ),
-                  Spacer(),
-                  Image.asset(
-                    ImageConstant.appicon,
-                    width: 158,
+                    ImageConstant.humburger,
+                    width: 40,
                     height: 40,
                   ),
                   Spacer(),
                   GestureDetector(
                     onTap: (){
-                      Get.toNamed(AppRouter.hamburgerScreen);
+
                     },
                     child: Image.asset(
-                      ImageConstant.humburger,
+                      ImageConstant.notification,
                       width: 40,
                       height: 40,
                     ),
@@ -67,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(height: 30,),
           GestureDetector(
             onTap: () {
-              Get.back();
+              Get.toNamed(AppRouter.qrCodeTab);
             },
             child: Container(
               height: 50,
@@ -80,8 +78,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         .normal14w500,
                   )),
               decoration: BoxDecoration(
-                color: Colors.green,
-                  borderRadius: BorderRadius.circular(5),
+                color: AppColor.buttoncolor,
+                  borderRadius: BorderRadius.circular(30),
                   border: Border.all(color: Colors.green)),
             ),
           ),

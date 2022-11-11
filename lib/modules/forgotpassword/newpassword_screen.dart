@@ -23,19 +23,33 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      appBar: AppBar(
+        title: const Text(
+          'Check Your Email',
+          style: TextStyle(color: Colors.black),
+        ),
+        centerTitle: true,
+        elevation: 0.0,
+        backgroundColor: Colors.transparent,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+            size: 20.0,
+          ),
+        ),
+      ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 137.0, left: 24, right: 24),
+        padding: const EdgeInsets.only(top: 60.0, left: 24, right: 24),
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Center(
-                  child: Text(
-                "Create new password",
-                style: TextStyle(fontFamily: 'Oswald').normal25w600,
-              )),
+
               Padding(
-                padding: const EdgeInsets.only(left: 20.0, right: 20, top: 10),
+                padding: const EdgeInsets.only(left: 20.0, right: 20, top: 80),
                 child: Text(
                   "Your new password must be different from preiously used password",
                   textAlign: TextAlign.center,
@@ -119,7 +133,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                 ),
               ),
               SizedBox(
-                height: 150,
+                height: 200,
               ),
               Obx(
                 () => CommonAppButton(
@@ -129,7 +143,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                               newPasswordController.passwordString.value))
                       ? ButtonType.enable
                       : ButtonType.disable,
-                  borderRadius: 5,
+                  borderRadius: 30,
                   onTap: () async {
                     FocusScope.of(context).unfocus();
                     Get.toNamed(AppRouter.successChangePasswordScreen);
@@ -138,31 +152,11 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                 ),
               ),
               const SizedBox(
-                height: 15,
-              ),
-              GestureDetector(
-                onTap: () {
-                  Get.back();
-                },
-                child: Container(
-                  height: 50,
-                  width: context.width,
-                  child: Center(
-                      child: Text(
-                    "CANCEL",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontFamily: 'inter', color: Colors.green)
-                        .normal14w500,
-                  )),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      border: Border.all(color: Colors.green)),
-                ),
-              ),
-              const SizedBox(
                 height: 60,
               ),
+
             ],
+
           ),
         ),
       ),

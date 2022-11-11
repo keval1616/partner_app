@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:gymui/gyms.dart';
-import 'package:gymui/utils.dart';
-import 'package:gymui/widgets/height_spacer.dart';
+import 'package:partner_app/utils/gyms.dart';
+import 'package:partner_app/utils/historyutils.dart';
+
 
 class GymDetails extends StatefulWidget {
   final Gyms gyms;
@@ -74,9 +74,9 @@ class _GymDetailsState extends State<GymDetails> {
                     fontWeight: FontWeight.w600,
                   )),
             ),
-            const HeightSpacer(height: 10.0),
+
             SizedBox(
-              height: 25.0,
+              height: 35.0,
               width: MediaQuery.of(context).size.width,
               child: ListView.builder(
                   itemCount: sports.length,
@@ -128,7 +128,7 @@ class _GymDetailsState extends State<GymDetails> {
             'Gym operation hours',
             style: _textStyle,
           ),
-          const HeightSpacer(height: 10.0),
+          const SizedBox(height: 10.0),
           RichText(
             textAlign: TextAlign.center,
             text: TextSpan(children: <TextSpan>[
@@ -139,7 +139,7 @@ class _GymDetailsState extends State<GymDetails> {
               ),
             ]),
           ),
-          const HeightSpacer(height: 10.0),
+          const SizedBox(height: 10.0),
           RichText(
             textAlign: TextAlign.center,
             text: TextSpan(children: <TextSpan>[
@@ -150,7 +150,7 @@ class _GymDetailsState extends State<GymDetails> {
               ),
             ]),
           ),
-          const HeightSpacer(height: 10.0),
+          const SizedBox(height: 10.0),
           RichText(
             textAlign: TextAlign.center,
             text: TextSpan(children: <TextSpan>[
@@ -177,13 +177,13 @@ class _GymDetailsState extends State<GymDetails> {
             'Contacts',
             style: _textStyle,
           ),
-          const HeightSpacer(height: 10.0),
+          const SizedBox(height: 10.0),
           const Text('bill.sanders@abc.com',
               style: TextStyle(fontSize: 18.0, color: Colors.black)),
-          const HeightSpacer(height: 10.0),
+          const SizedBox(height: 10.0),
           const Text('(308) 555-0102',
               style: TextStyle(fontSize: 18.0, color: Colors.black)),
-          const HeightSpacer(height: 10.0),
+          const SizedBox(height: 10.0),
           const Text('(207) 555-0119',
               style: TextStyle(fontSize: 18.0, color: Colors.black))
         ],
@@ -202,10 +202,10 @@ class _GymDetailsState extends State<GymDetails> {
             'Address',
             style: _textStyle,
           ),
-          const HeightSpacer(height: 10.0),
+          const SizedBox(height: 10.0),
           const Text('2715 Ash Dr. San Jose, South Dakota 83475',
               style: TextStyle(fontSize: 18.0, color: Colors.black)),
-          const HeightSpacer(height: 10.0),
+          const SizedBox(height: 10.0),
           SizedBox(
             width: MediaQuery.of(context).size.width - 20,
             height: 180.0,
@@ -258,11 +258,11 @@ class _GymDetailsState extends State<GymDetails> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const HeightSpacer(height: 10.0),
+            const SizedBox(height: 10.0),
             bannerBlock(),
-            const HeightSpacer(height: 10.0),
+            const SizedBox(height: 10.0),
             nameBlock(),
-            const HeightSpacer(height: 15.0),
+            const SizedBox(height: 15.0),
             Container(
               padding: const EdgeInsets.all(5.0),
               margin: const EdgeInsets.only(left: 10.0),
@@ -278,11 +278,11 @@ class _GymDetailsState extends State<GymDetails> {
                 ),
               ),
             ),
-            const HeightSpacer(height: 20.0),
+            const SizedBox(height: 20.0),
             operationHours(),
-            const HeightSpacer(height: 30.0),
+            const SizedBox(height: 30.0),
             contactsBlock(),
-            const HeightSpacer(height: 30.0),
+            const SizedBox(height: 30.0),
             addressBlock(),
           ],
         ),

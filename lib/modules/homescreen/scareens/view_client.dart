@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gymui/scareens/view_history.dart';
-import 'package:gymui/users.dart';
-import 'package:gymui/utils.dart';
-import 'package:gymui/widgets/height_spacer.dart';
+
 import 'package:marquee/marquee.dart';
+import 'package:partner_app/modules/homescreen/scareens/view_history.dart';
+import 'package:partner_app/utils/historyutils.dart';
+import 'package:partner_app/utils/users.dart';
 
 class ViewClient extends StatefulWidget {
   final User user;
@@ -53,7 +53,7 @@ class _ViewClientState extends State<ViewClient> {
                   'Times visited',
                   style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w600),
                 ),
-                const HeightSpacer(height: 10.0),
+                const SizedBox(height: 10.0),
                 Text(
                   widget.user.visiteCount.toString(),
                   style: const TextStyle(
@@ -79,7 +79,7 @@ class _ViewClientState extends State<ViewClient> {
                   'Last visit',
                   style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w600),
                 ),
-                HeightSpacer(height: 10.0),
+                SizedBox(height: 10.0),
                 Text(
                   '11 Aug 2020 11:56 AM',
                   style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w400),
@@ -129,7 +129,7 @@ class _ViewClientState extends State<ViewClient> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const HeightSpacer(height: 130.0),
+                    const SizedBox(height: 130.0),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),
                       child: Text(
@@ -142,7 +142,7 @@ class _ViewClientState extends State<ViewClient> {
                             )),
                       ),
                     ),
-                    const HeightSpacer(height: 5.0),
+                    const SizedBox(height: 5.0),
                     Text(
                       widget.user.email,
                       style: const TextStyle(
@@ -150,11 +150,11 @@ class _ViewClientState extends State<ViewClient> {
                           fontWeight: FontWeight.w500,
                           color: Colors.grey),
                     ),
-                    const HeightSpacer(height: 30.0),
+                    const SizedBox(height: 30.0),
                     textScroll(),
-                    const HeightSpacer(height: 10.0),
+                    const SizedBox(height: 10.0),
                     visiteBlock(),
-                    const HeightSpacer(height: 50.0),
+                    const SizedBox(height: 50.0),
                     GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(

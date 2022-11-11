@@ -4,6 +4,7 @@ class TxtFontFamily {
   static const String gilroy = "gilroy";
   static const String inter = "inter";
   static const String Oswald = "Oswald";
+  static const String Roboto = "Roboto";
 }
 
 extension TextStyleExtensions on TextStyle {
@@ -95,6 +96,16 @@ extension TextStyleExtensions on TextStyle {
     fontSize: 14,
     letterSpacing: 0.0,
     weight: FontWeight.w500,
+  );
+  TextStyle get normal17w500 => customStyle(
+    fontSize: 17,
+    letterSpacing: 0.0,
+    weight: FontWeight.w500,
+  );
+  TextStyle get normal17w600 => customStyle(
+    fontSize: 17,
+    letterSpacing: 0.0,
+    weight: FontWeight.w600,
   );
   TextStyle get normal12w300 => customStyle(
     fontSize: 12,

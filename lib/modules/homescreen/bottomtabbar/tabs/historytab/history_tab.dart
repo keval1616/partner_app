@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:partner_app/modules/homescreen/scareens/view_client.dart';
+import 'package:partner_app/utils/historyutils.dart';
 
 
 class HistoryTab extends StatefulWidget {
@@ -23,7 +26,7 @@ class _HistoryTabState extends State<HistoryTab> {
           startDate.toUpperCase(),
           style:
               TextStyle(
-                fontSize: 22.0,
+                fontSize: 20.0,
                 fontWeight: FontWeight.w600,
               )),
 
@@ -32,7 +35,7 @@ class _HistoryTabState extends State<HistoryTab> {
         ),
         const Text(
           '-',
-          style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600),
         ),
         const SizedBox(
           width: 5.0,
@@ -41,7 +44,7 @@ class _HistoryTabState extends State<HistoryTab> {
 
           endDate.toUpperCase(),
           style:
-                  const TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold)),
+                  const TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600)),
 
       ],
     );
@@ -87,12 +90,11 @@ class _HistoryTabState extends State<HistoryTab> {
                   child: Center(
                     child: Text(
                       'WEEK',
-                      style: GoogleFonts.getFont(Utlis.fontName,
-                          textStyle: const TextStyle(
+                      style:  TextStyle(
                               fontSize: 16.0,
                               fontWeight: FontWeight.w500,
                               color: Colors.white)),
-                    ),
+
                   ),
                 ),
               ),
@@ -255,7 +257,7 @@ class _HistoryTabState extends State<HistoryTab> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           emptyContainer(Colors.green.withOpacity(0.6)),
-          const HeightSpacer(height: 10.0),
+          SizedBox(height: 10.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -309,7 +311,7 @@ class _HistoryTabState extends State<HistoryTab> {
                       ),
                     ),
                   ),
-                  const HeightSpacer(height: 10.0),
+                  SizedBox(height: 10.0),
                   Text(
                     '+106%',
                     style: TextStyle(
@@ -344,7 +346,7 @@ class _HistoryTabState extends State<HistoryTab> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           emptyContainer(const Color.fromARGB(255, 132, 40, 34)),
-          const HeightSpacer(height: 10.0),
+          const SizedBox(height: 10.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -381,7 +383,7 @@ class _HistoryTabState extends State<HistoryTab> {
                       ),
                     ),
                   ),
-                  const HeightSpacer(height: 10.0),
+                  const SizedBox(height: 10.0),
                   Text(
                     '-106%',
                     style: TextStyle(
@@ -419,13 +421,13 @@ class _HistoryTabState extends State<HistoryTab> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               dateRanges(),
-              const HeightSpacer(height: 10.0),
+              const SizedBox(height: 10.0),
               buttonBlock(),
-              const HeightSpacer(height: 20.0),
+              const SizedBox(height: 20.0),
               incomeBlock(),
-              const HeightSpacer(height: 15.0),
+              const SizedBox(height: 15.0),
               visiotorBlock(),
-              const HeightSpacer(height: 20.0),
+              const SizedBox(height: 20.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -445,7 +447,7 @@ class _HistoryTabState extends State<HistoryTab> {
                   )
                 ],
               ),
-              const HeightSpacer(height: 20.0),
+              const SizedBox(height: 20.0),
               ListView.builder(
                   itemCount: Utlis.users.length,
                   physics: const NeverScrollableScrollPhysics(),
