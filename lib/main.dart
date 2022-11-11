@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialRoute: AppRouter.loginscreen,
+      initialRoute: AppRouter.homeScreen,
       getPages: AppRouter.getPages,
       debugShowCheckedModeBanner: false,
 

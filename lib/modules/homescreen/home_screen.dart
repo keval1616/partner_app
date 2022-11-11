@@ -6,6 +6,7 @@ import 'package:partner_app/schema/appcolor.dart';
 import 'package:partner_app/schema/test_style.dart';
 import 'package:partner_app/utils/images.dart';
 
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -17,7 +18,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       drawer: MyDrawer(),
       backgroundColor: AppColor.white,
       body: Padding(
@@ -25,26 +25,35 @@ class _HomeScreenState extends State<HomeScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Row(
-                children: [
-                  Image.asset(
-                    ImageConstant.humburger,
-                    width: 40,
-                    height: 40,
-                  ),
-                  Spacer(),
-                  GestureDetector(
-                    onTap: (){
-
-                    },
-                    child: Image.asset(
-                      ImageConstant.notification,
-                      width: 40,
-                      height: 40,
+              Builder(
+                  builder: (context) => GestureDetector(
+                    onTap: ()=> Scaffold.of(context).openDrawer(),
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Container(
+                        width: 50,
+                        height: 50,
+                        child: Image.asset(ImageConstant.drawer),
+                        decoration: BoxDecoration(
+                            color: AppColor.white,
+                            borderRadius: BorderRadius.circular(30),
+                            boxShadow: [
+                              BoxShadow(
+                                color: AppColor.shadowColor.withOpacity(0.25),
+                                spreadRadius: 2,
+                                blurRadius: 2,
+                                offset:
+                                const Offset(0, 2), // changes position of shadow
+                              ),
+                            ]),
+                      ),
                     ),
-                  ),
-                ],
+                  )
+
+
+
               ),
+
               SizedBox(
                 height: 85,
               ),

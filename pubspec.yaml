@@ -71,6 +71,7 @@ flutter:
   assets:
     - assets/
     - assets/homepage/
+    - assets/homepage/hamburger.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
