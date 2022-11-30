@@ -25,34 +25,57 @@ class _HomeScreenState extends State<HomeScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Builder(
-                  builder: (context) => GestureDetector(
-                    onTap: ()=> Scaffold.of(context).openDrawer(),
-                    child: Align(
-                      alignment: Alignment.topLeft,
-                      child: Container(
-                        width: 50,
-                        height: 50,
-                        child: Image.asset(ImageConstant.drawer),
-                        decoration: BoxDecoration(
-                            color: AppColor.white,
-                            borderRadius: BorderRadius.circular(30),
-                            boxShadow: [
-                              BoxShadow(
-                                color: AppColor.shadowColor.withOpacity(0.25),
-                                spreadRadius: 2,
-                                blurRadius: 2,
-                                offset:
-                                const Offset(0, 2), // changes position of shadow
-                              ),
-                            ]),
-                      ),
-                    ),
-                  )
+              Row(
+                children: [
+                  Builder(
+                      builder: (context) => GestureDetector(
+                        onTap: ()=> Scaffold.of(context).openDrawer(),
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Container(
+                            width: 50,
+                            height: 50,
+                            child: Image.asset(ImageConstant.drawer),
+                            decoration: BoxDecoration(
+                                color: AppColor.white,
+                                borderRadius: BorderRadius.circular(30),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: AppColor.shadowColor.withOpacity(0.25),
+                                    spreadRadius: 2,
+                                    blurRadius: 2,
+                                    offset:
+                                    const Offset(0, 2), // changes position of shadow
+                                  ),
+                                ]),
+                          ),
+                        ),
+                      )
 
 
 
+                  ),
+                  Spacer(),
+                  Container(
+                    width: 50,
+                    height: 50,
+                    child: Image.asset(ImageConstant.bell),
+                    decoration: BoxDecoration(
+                        color: AppColor.white,
+                        borderRadius: BorderRadius.circular(30),
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColor.shadowColor.withOpacity(0.25),
+                            spreadRadius: 2,
+                            blurRadius: 2,
+                            offset:
+                            const Offset(0, 2), // changes position of shadow
+                          ),
+                        ]),
+                  ),
+                ],
               ),
+
 
               SizedBox(
                 height: 85,
