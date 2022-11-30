@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:partner_app/schema/appcolor.dart';
-import 'package:partner_app/schema/test_style.dart';
-import 'package:partner_app/utils/enum.dart';
+import 'package:gymui/schema/appcolor.dart';
+import 'package:gymui/schema/text_style.dart';
+import 'package:gymui/utils/enum.dart';
 
 class CommonAppButton extends StatelessWidget {
   final Function()? onTap;
@@ -63,8 +63,8 @@ class CommonAppButton extends StatelessWidget {
           decoration: BoxDecoration(
               border: border,
               color: buttonType == ButtonType.disable
-              ? Colors.transparent
-              : AppColor.buttoncolor,
+                  ? Colors.transparent
+                  : AppColor.buttoncolor,
               borderRadius: BorderRadius.circular(borderRadius ?? 100),
               boxShadow: boxShadow),
           child: Row(
@@ -77,8 +77,9 @@ class CommonAppButton extends StatelessWidget {
                   child: Text(
                     text!,
                     style: style ??
-                        const TextStyle(fontFamily: 'inter').normal14w500.textColor(
-                            (buttonType == ButtonType.disable)
+                        const TextStyle(fontFamily: 'inter')
+                            .normal14w500
+                            .textColor((buttonType == ButtonType.disable)
                                 ? Colors.black45
                                 : Colors.white),
                   ),
@@ -90,5 +91,3 @@ class CommonAppButton extends StatelessWidget {
     );
   }
 }
-
-

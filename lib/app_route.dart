@@ -1,29 +1,56 @@
 import 'package:get/get.dart';
-import 'package:partner_app/modules/forgotpassword/forgotmail_screen.dart';
-import 'package:partner_app/modules/forgotpassword/forgotpasswprd_screen.dart';
-import 'package:partner_app/modules/forgotpassword/newpassword_screen.dart';
-import 'package:partner_app/modules/forgotpassword/successfullychangepassword_screen.dart';
-import 'package:partner_app/modules/hamburger/hamburger_screen.dart';
-import 'package:partner_app/modules/homescreen/bottomtabbar/bottomtabbar_screen.dart';
-import 'package:partner_app/modules/homescreen/home_screen.dart';
-import 'package:partner_app/modules/login/login_screen.dart';
+import 'package:gymui/auth_screens/forgotpassword/check_mail.dart';
+import 'package:gymui/auth_screens/forgotpassword/forgotpasswprd_screen.dart';
+import 'package:gymui/auth_screens/forgotpassword/newpassword_screen.dart';
+import 'package:gymui/auth_screens/forgotpassword/successfullychangepassword_screen.dart';
+import 'package:gymui/auth_screens/login_screen.dart';
+import 'package:gymui/screens/contact_us.dart';
+import 'package:gymui/screens/gym_details.dart';
+import 'package:gymui/screens/home_screen.dart';
+import 'package:gymui/screens/privacy_policy.dart';
+import 'package:gymui/screens/view_client.dart';
+import 'package:gymui/screens/view_history.dart';
 
-import 'modules/homescreen/bottomtabbar/tabs/qr_code_tab.dart';
+import 'screens/gym_photos.dart';
+import 'screens/notification_screen.dart';
+import 'screens/profile_settings/change_gym_data.dart';
+import 'screens/profile_settings/changeemail/changeemail_screen.dart';
+import 'screens/profile_settings/changeemail/checkmailforgotmail_Screen.dart';
+import 'screens/profile_settings/changeemail/successfullychangeemail_screen.dart';
+import 'screens/profile_settings/changepassword/changepassword_Screen.dart';
+import 'screens/profile_settings/contactus_mail_screen.dart';
+import 'screens/profile_settings/profile_change_screen.dart';
+import 'screens/qr_client_history_screen.dart';
+import 'screens/qr_scanner_page.dart';
+import 'screens/terms_of_use.dart';
 
 class AppRouter {
-  static const loginscreen = '/loginscreen';
+  static const loginScreen = '/loginScreen';
   static const forgotPasswordScreen = '/forgotPasswordScreen';
-  static const checkmailpassword_screen = '/checkmailpassword_screen';
+  static const checkMailAddress = '/checkMailAddress';
+  static const checkMailForgotScreen = '/checkMailForgotScreen';
+  static const changeEmailScreen = '/changeEmailScreen';
+
   static const newPasswordScreen = '/newPasswordScreen';
   static const successChangePasswordScreen = '/successChangePasswordScreen';
   static const homeScreen = '/homeScreen';
-  static const hamburgerScreen = '/hamburgerScreen';
-  static const bottomTabBar = '/bottomTabBar';
-  static const qrCodeTab = '/qrCodeTab';
-
-  static List<GetPage> getPages = [
+  static const changeProfileScreen = '/changeProfileScreen';
+  static const contactUsScreen = '/contactUsScreen';
+  static const privacyPolicyPage = '/privacyPolicyPage';
+  static const termsOfUser = '/termsOfUser';
+  static const changeGymData = '/changeGymData';
+  static const changePasswordScreen = '/changePasswordScreen';
+  static const successfullyChangeEmailScreen = '/SuccessfullyChangeEmailScreen';
+  static const qrSacnnerPage = '/qrSacnnerPage';
+  static const contactUsMailScreen = '/contactUsMailScreen';
+  static const gymDetails = '/gymDetails';
+  static const viewHistory = '/viewHistory';
+  static const viewClient = '/viewClient';
+  static const qrClientHistoryScreen = '/qrClientHistoryScreen';
+  static const notificationScreen = '/notificationScreen';
+  List<GetPage> getPages = [
     GetPage(
-      name: loginscreen,
+      name: loginScreen,
       page: () => const LoginScreen(),
     ),
     GetPage(
@@ -31,8 +58,16 @@ class AppRouter {
       page: () => const ForgotPasswordScreen(),
     ),
     GetPage(
-      name: checkmailpassword_screen,
-      page: () => const Checkmailpassword_screen(),
+      name: checkMailAddress,
+      page: () => const CheckMailAddress(),
+    ),
+    GetPage(
+      name: checkMailForgotScreen,
+      page: () => const CheckMailForgotScreen(),
+    ),
+    GetPage(
+      name: changeEmailScreen,
+      page: () => const ChangeEmailScreen(),
     ),
     GetPage(
       name: newPasswordScreen,
@@ -47,17 +82,60 @@ class AppRouter {
       page: () => const HomeScreen(),
     ),
     GetPage(
-      name: hamburgerScreen,
-      page: () => const HamburgerScreen(),
+      name: changeProfileScreen,
+      page: () => const ChangeProfileScreen(),
     ),
     GetPage(
-      name: bottomTabBar,
-      page: () => const   BottomTabBar(),
+      name: contactUsScreen,
+      page: () => const ContactUs(),
     ),
     GetPage(
-      name: qrCodeTab,
-      page: () => const   QrCodeTab(),
+      name: privacyPolicyPage,
+      page: () => const PrivacyPolicyPage(),
+    ),
+    GetPage(
+      name: termsOfUser,
+      page: () => const TermsOfUser(),
+    ),
+    GetPage(
+      name: changeGymData,
+      page: () => ChangeGymData(),
+    ),
+    GetPage(
+      name: changePasswordScreen,
+      page: () => const ChangePasswordScreen(),
+    ),
+    GetPage(
+      name: successfullyChangeEmailScreen,
+      page: () => const SuccessfullyChangeEmailScreen(),
+    ),
+    GetPage(
+      name: qrSacnnerPage,
+      page: () => const QrScannerPage(),
+    ),
+    GetPage(
+      name: gymDetails,
+      page: () => const GymDetails(),
+    ),
+    GetPage(
+      name: viewHistory,
+      page: () => ViewHistory(),
+    ),
+    GetPage(
+      name: viewClient,
+      page: () => ViewClient(),
+    ),
+    GetPage(
+      name: qrClientHistoryScreen,
+      page: () => QrClientHistoryScreen(),
+    ),
+    GetPage(
+      name: notificationScreen,
+      page: () => NotificationScreen(),
+    ),
+    GetPage(
+      name: contactUsMailScreen,
+      page: () => ContactUsMailScreen(),
     ),
   ];
-
 }

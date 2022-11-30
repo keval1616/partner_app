@@ -1,7 +1,6 @@
-
 import 'package:flutter/material.dart';
-import 'package:partner_app/schema/appcolor.dart';
-import 'package:partner_app/schema/test_style.dart';
+import 'package:gymui/schema/appcolor.dart';
+import 'package:gymui/schema/text_style.dart';
 
 typedef OnValidation = dynamic Function(String? text);
 
@@ -35,7 +34,7 @@ class InputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height:54 ,
+      height: 54,
       child: TextFormField(
         cursorColor: Colors.black,
         autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -91,7 +90,6 @@ class InputField extends StatelessWidget {
   }
 }
 
-
 class squerInputField extends StatelessWidget {
   final TextEditingController controller;
   final FocusNode focusNode;
@@ -122,7 +120,7 @@ class squerInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height:54 ,
+      height: 54,
       child: TextFormField(
         cursorColor: Colors.black,
         autovalidateMode: AutovalidateMode.onUserInteraction,
