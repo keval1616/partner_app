@@ -87,6 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     focusNode: loginScreenController.passwordFocusNode,
                     hint: "Password",
                     textInputAction: TextInputAction.done,
+                    keyboardType: TextInputType.emailAddress,
                     suffixIcon: GestureDetector(
                       onTap: () {
                         loginScreenController.showPass.value =

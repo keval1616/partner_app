@@ -15,9 +15,10 @@ class ChangeEmailScreen extends StatefulWidget {
   State<ChangeEmailScreen> createState() => _ChangeEmailScreenState();
 }
 
-final changeEmailController = Get.put(ChangeEmailController());
 
 class _ChangeEmailScreenState extends State<ChangeEmailScreen> {
+  final changeEmailController = Get.put(ChangeEmailController());
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -62,6 +63,28 @@ class _ChangeEmailScreenState extends State<ChangeEmailScreen> {
                 ),
                 const SizedBox(height: 100),
                 Text(
+                  "Type Current Email",
+                  textAlign: TextAlign.start,
+                  style: const TextStyle(
+                      fontFamily: TxtFontFamily.roboto, color: Colors.black26)
+                      .normal17w600,
+                ),
+
+                const SizedBox(
+                  height: 10,
+                ),
+
+                InputField(
+                  maxLine: 1,
+                  controller: changeEmailController.currentEmailController,
+                  focusNode: changeEmailController.currentEmailFocusNode,
+                  hint: "Enter Current Email",
+                  textInputAction: TextInputAction.done,
+                  keyboardType: TextInputType.emailAddress,
+                ),
+                SizedBox(height: 20),
+
+                Text(
                   "Type New Email",
                   textAlign: TextAlign.start,
                   style: const TextStyle(
@@ -71,6 +94,8 @@ class _ChangeEmailScreenState extends State<ChangeEmailScreen> {
                 const SizedBox(
                   height: 10,
                 ),
+
+
                 InputField(
                   maxLine: 1,
                   onChange: (val) {
@@ -83,7 +108,7 @@ class _ChangeEmailScreenState extends State<ChangeEmailScreen> {
                   keyboardType: TextInputType.emailAddress,
                 ),
                 const SizedBox(
-                  height: 370,
+                  height: 200,
                 ),
                 Obx(
                   () => CommonAppButton(

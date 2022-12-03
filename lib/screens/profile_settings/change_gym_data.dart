@@ -90,23 +90,25 @@ class _ChangeGymDataState extends State<ChangeGymData> {
 
   loadData() {
     getGymDataController.instaController.text =
-        getGymDataController.socialMediaDataModel.value.instagram.toString();
+        getGymDataController.socialMediaDataModel.value.instagram??"";
     getGymDataController.fbController.text =
-        getGymDataController.socialMediaDataModel.value.facebook.toString();
+        getGymDataController.socialMediaDataModel.value.facebook ?? "";
     getGymDataController.twitterController.text =
-        getGymDataController.socialMediaDataModel.value.twitter.toString();
+        getGymDataController.socialMediaDataModel.value.twitter??"";
     getGymDataController.wappController.text =
-        getGymDataController.socialMediaDataModel.value.whatsapp.toString();
+        getGymDataController.socialMediaDataModel.value.whatsapp??"";
     getGymDataController.descController.text =
-        getGymDataController.getGymDataModel.value.description.toString();
+        getGymDataController.getGymDataModel.value.description??"";
     getGymDataController.nameController.text =
-        getGymDataController.getGymDataModel.value.name.toString();
+        getGymDataController.getGymDataModel.value.name??"";
     getGymDataController.addressController.text =
-        getGymDataController.getGymDataModel.value.addressLine1.toString();
+        getGymDataController.getGymDataModel.value.addressLine1??"";
     getGymDataController.emailController.text =
-        getGymDataController.getContectModel.value.email.toString();
+        getGymDataController.getContectModel.value.email??"";
     getGymDataController.phoneController.text =
-        getGymDataController.getContectModel.value.phoneNumbers?[0] ?? '';
+        getGymDataController.getContectModel.value.phoneNumbers?.length == 1
+            ? getGymDataController.getContectModel.value.phoneNumbers![0]
+            : "";
     getGymDataController.secondPhoneController.text =
         getGymDataController.getContectModel.value.phoneNumbers?.length == 2
             ? getGymDataController.getContectModel.value.phoneNumbers![1]

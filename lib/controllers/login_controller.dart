@@ -68,7 +68,8 @@ class LoginScreenController extends GetxController {
           backgroundColor: AppColor.buttoncolor,
           duration: Duration(milliseconds: 3000),
           message: response.data['detail'],
-        ));
+        )
+        );
       }
     } catch (error) {
       print(error);

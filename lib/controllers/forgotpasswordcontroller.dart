@@ -6,7 +6,7 @@ import 'package:gymui/services/api_service.dart';
 
 class ForgotPasswordScreenController extends GetxController {
   RxString emailString = "".obs;
-  TextEditingController emailAddressController = TextEditingController(text: "harkhenterprise@gmail.com");
+  TextEditingController emailAddressController = TextEditingController();
   FocusNode emailAddressFocusNode = FocusNode();
 
   Future<void> apiCallForForgotPassword() async {

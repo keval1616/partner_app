@@ -16,9 +16,9 @@ class ChangePasswordScreen extends StatefulWidget {
   State<ChangePasswordScreen> createState() => _ChangePasswordScreenState();
 }
 
-final changePasswordController = Get.put(ChangePasswordController());
 
 class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
+final changePasswordController = Get.put(ChangePasswordController());
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -47,7 +47,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 20.0, right: 20, top: 80),
+                  padding: const EdgeInsets.only(left: 20.0, right: 20, top: 60),
                   child: Text(
                     "Your new password must be different from preiously used password",
                     textAlign: TextAlign.center,
@@ -59,27 +59,24 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                 ),
                 Obx(
                   () => InputField(
-                    onChange: (val) {
-                      changePasswordController.oldPasswordString.value =
-                          val ?? "";
-                    },
+
                     maxLine: 1,
-                    obscureText: !changePasswordController.showPass.value,
+                    obscureText: !changePasswordController.oldshowPass.value,
                     controller: changePasswordController.oldpasswordController,
                     focusNode: changePasswordController.oldpasswordFocusNode,
                     hint: " Old Password",
                     textInputAction: TextInputAction.done,
                     suffixIcon: GestureDetector(
                       onTap: () {
-                        changePasswordController.showPass.value =
-                            !changePasswordController.showPass.value;
+                        changePasswordController.oldshowPass.value =
+                            !changePasswordController.oldshowPass.value;
 
                         if (mounted) {
                           setState(() {});
                         }
                       },
                       child: Icon(
-                        changePasswordController.showPass.value
+                        changePasswordController.oldshowPass.value
                             ? Icons.remove_red_eye_outlined
                             : Icons.remove_red_eye,
                         color: AppColor.grey,
@@ -181,7 +178,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                   ),
                 ),
                 const SizedBox(
-                  height: 200,
+                  height: 130,
                 ),
                 Obx(
                   () => CommonAppButton(
@@ -197,7 +194,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       FocusScope.of(context).unfocus();
                       changePasswordController.apiCallForChangePassword();
                     },
-                    text: "CREATE PASSWORD",
+                    text: "CHANGE PASSWORD",
                   ),
                 ),
                 const SizedBox(

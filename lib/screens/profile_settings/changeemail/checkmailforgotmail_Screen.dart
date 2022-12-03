@@ -66,7 +66,7 @@ class _CheckMailForgotScreenState extends State<CheckMailForgotScreen> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Get.toNamed(AppRouter.successfullyChangeEmailScreen);
+                      // Get.toNamed(AppRouter.successfullyChangeEmailScreen);
                     },
                     child: Container(
                       height: 50,

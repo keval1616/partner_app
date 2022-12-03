@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
       title: 'Partner App',
       debugShowCheckedModeBanner: false,
       getPages: AppRouter().getPages,
-       initialRoute: AppRouter.homeScreen,
+
       // builder: EasyLoading.init(),
       home:
           AppPref().token.isNotEmpty ? const HomeScreen() : const LoginScreen(),
