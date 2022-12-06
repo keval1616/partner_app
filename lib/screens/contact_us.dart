@@ -4,6 +4,7 @@ import 'package:gymui/app_route.dart';
 import 'package:gymui/schema/appcolor.dart';
 import 'package:gymui/schema/text_style.dart';
 import 'package:gymui/widgets/height_spacer.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactUs extends StatefulWidget {
   const ContactUs({super.key});
@@ -129,7 +130,14 @@ class _ContactUsState extends State<ContactUs> {
   Widget copyEmailButton() {
     return GestureDetector(
       onTap: () {
-        Get.toNamed(AppRouter.contactUsMailScreen);
+        Future<void> emailLaunchUri() async {
+          final Uri launchUri = Uri(
+            scheme: 'mailto',
+            path: 'support@ischoolwallet.com',
+          );
+          await launchUrl(launchUri);
+        }
+        // Get.toNamed(AppRouter.contactUsMailScreen);
       },
       child: Container(
         height: 50,

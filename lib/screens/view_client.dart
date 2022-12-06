@@ -91,12 +91,12 @@ class _ViewClientState extends State<ViewClient> {
                 Text(
                   DateUtilities.convertServerDateToFormatterString(
                           viewClientController
-                              .viewClientModel.value.last_visit_date!,
+                              .viewClientModel.value.last_visit_date??"",
                           formatter: DateUtilities.file_name_date) +
                       " " +
                       DateUtilities.convertServerDateToFormatterString(
                           viewClientController
-                              .viewClientModel.value.last_visit_date!,
+                              .viewClientModel.value.last_visit_date??"",
                           formatter: DateUtilities.hh_mm_a),
                   style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w400),
                 )
@@ -200,8 +200,9 @@ class _ViewClientState extends State<ViewClient> {
                                 viewHistoryController.apiCallForviewClientHistory();
                               });
 
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => ViewHistory()));
+                              // Navigator.of(context).push(MaterialPageRoute(
+                              //     builder: (context) => ViewHistory())
+                              // );
                             },
                             child: Container(
                               width: MediaQuery.of(context).size.width - 20.0,

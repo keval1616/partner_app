@@ -3,11 +3,13 @@ import 'package:get/get.dart';
 import 'package:gymui/app_route.dart';
 import 'package:gymui/controllers/home_screen_controller.dart';
 import 'package:gymui/model/client_history_model.dart';
+import 'package:gymui/model/incomemodel.dart';
 import 'package:gymui/model/me_profile_model.dart';
 import 'package:gymui/services/api_service.dart';
 import 'package:gymui/utils/app_preferences.dart';
 
 class HistoryTabController extends GetxController {
+  Rx<IncomeModel> incomeModel = Rx<IncomeModel>(IncomeModel());
   ProfileModel profileModel = ProfileModel();
   ClientHistoryModel clientHistoryModel = ClientHistoryModel();
   Future<void> apiCallFoHistoryData(String startDate,String endDate) async {
@@ -27,6 +29,23 @@ class HistoryTabController extends GetxController {
         // print(clientHistoryModel);
         // print(response);
         update();
+      }
+    } catch (e) {
+      return;
+    }
+  }
+  Future<void> apiCallForIncomData() async {
+    try {
+      final response = await ApiService.makeApiCall(
+          "partners/${AppPref().partner_id}/history/",
+          ApiMethodType.get,
+          doShowLoader: true);
+
+      if (response != null) {
+        incomeModel.value = IncomeModel.fromJson(response);
+        print(incomeModel);
+        print(response);
+        // Get.toNamed(AppRouter.changeGymData);
       }
     } catch (e) {
       return;

@@ -39,9 +39,11 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       getPages: AppRouter().getPages,
 
+      initialRoute: AppRouter.splashScreen,
+
       // builder: EasyLoading.init(),
-      home:
-          AppPref().token.isNotEmpty ? const HomeScreen() : const LoginScreen(),
+      // home:
+      //     AppPref().token.isNotEmpty ? const HomeScreen() : const LoginScreen(),
     );
   }
 }

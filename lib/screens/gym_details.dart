@@ -181,13 +181,17 @@ class _GymDetailsState extends State<GymDetails> {
             style: _textStyle,
           ),
           const HeightSpacer(height: 10.0),
-          const Text('bill.sanders@abc.com',
+           Text(gymDetailController.getContectModel.value.email??"",
               style: TextStyle(fontSize: 18.0, color: Colors.black)),
           const HeightSpacer(height: 10.0),
-          const Text('(308) 555-0102',
+           Text(gymDetailController.getContectModel.value.phoneNumbers?.length == 1
+               ? gymDetailController.getContectModel.value.phoneNumbers![0]
+               : "",
               style: TextStyle(fontSize: 18.0, color: Colors.black)),
           const HeightSpacer(height: 10.0),
-          const Text('(207) 555-0119',
+          Text(gymDetailController.getContectModel.value.phoneNumbers?.length == 2
+              ?gymDetailController.getContectModel.value.phoneNumbers![1]
+          :"",
               style: TextStyle(fontSize: 18.0, color: Colors.black))
         ],
       ),
@@ -266,11 +270,11 @@ class _GymDetailsState extends State<GymDetails> {
           children: [
             const HeightSpacer(height: 10.0),
             GestureDetector(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) =>
-                          GymPhotos(name: "text", photos: banners)));
-                },
+                // onTap: () {
+                //   Navigator.of(context).push(MaterialPageRoute(
+                //       builder: (context) =>
+                //           GymPhotos(name: "text", photos: banners)));
+                // },
                 child: bannerBlock()),
             const HeightSpacer(height: 10.0),
             nameBlock(),

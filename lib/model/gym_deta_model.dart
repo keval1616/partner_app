@@ -119,7 +119,7 @@ class GymDataModel {
 class Categories {
   int? id;
   String? title;
-  Null? image;
+  String? image;
   List<Sports>? sports;
 
   Categories({this.id, this.title, this.image, this.sports});

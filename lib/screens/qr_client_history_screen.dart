@@ -39,6 +39,7 @@ class QrClientHistoryScreen extends StatelessWidget {
             () => GestureDetector(
               onTap: () {
                 gymDetailController.apiCallFoGymdata();
+                gymDetailController.apiCallForContactInformation();
               },
               child: Container(
                 padding:

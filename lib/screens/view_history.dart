@@ -9,6 +9,8 @@ import 'package:gymui/utils.dart';
 import 'package:gymui/widgets/common_function.dart';
 import 'package:gymui/widgets/height_spacer.dart';
 
+import '../utils/date_utils.dart';
+
 class ViewHistory extends StatefulWidget {
   ViewHistory({super.key});
 
@@ -83,6 +85,7 @@ class _ViewHistoryState extends State<ViewHistory> {
                       return GestureDetector(
                           onTap: () {
                             gymDetailController.apiCallFoGymdata();
+                            gymDetailController.apiCallForContactInformation();
                             // Navigator.of(context).push(MaterialPageRoute(
                             //     builder: (context) =>
                             //         GymDetails()));
@@ -135,12 +138,19 @@ class _ViewHistoryState extends State<ViewHistory> {
                     style:
                         TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
                   ),
-                  Text(
-    viewHistoryController
-        .viewHistoryModel.value[index].partner!.createdDate ??
-    "",
-                    style: const TextStyle(
-                        fontSize: 13.0, fontWeight: FontWeight.w400),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text( DateUtilities.convertServerDateToFormatterString(
+                      viewHistoryController
+                          .viewHistoryModel.value[index].partner!.createdDate!,
+                      formatter: DateUtilities.file_name_date) +
+                      " " +
+                      DateUtilities.convertServerDateToFormatterString(
+                          viewHistoryController
+                              .viewHistoryModel.value[index].partner!.createdDate !,
+                          formatter: DateUtilities.hh_mm_a),
+                    style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w400),
                   )
                 ],
               )

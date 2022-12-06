@@ -30,6 +30,7 @@ class _HistoryTabState extends State<HistoryTab> {
   var weekFormat = DateFormat('dd MMMM');
   var yearFormat = DateFormat('yyyy');
   var monthFormat = DateFormat('MMMM yyyy');
+
   //var outputFormat = DateFormat('dd/MM/yyyy hh:mm a');
   String dateTitle = '';
   final GlobalKey _key = GlobalKey();
@@ -57,6 +58,7 @@ class _HistoryTabState extends State<HistoryTab> {
               formatter: DateUtilities.yyyy_mm_dd),
           DateUtilities.getFormattedDateString(now,
               formatter: DateUtilities.yyyy_mm_dd));
+      historyTabController.apiCallForIncomData();
     });
   }
 
@@ -83,6 +85,7 @@ class _HistoryTabState extends State<HistoryTab> {
               formatter: DateUtilities.yyyy_mm_dd),
           DateUtilities.getFormattedDateString(lastDayDateTime,
               formatter: DateUtilities.yyyy_mm_dd));
+      historyTabController.apiCallForIncomData();
     });
   }
 
@@ -95,6 +98,7 @@ class _HistoryTabState extends State<HistoryTab> {
     });
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
       historyTabController.apiCallFoHistoryData("01/01/$year", "31/12/$year");
+      historyTabController.apiCallForIncomData();
     });
   }
 
@@ -383,7 +387,7 @@ class _HistoryTabState extends State<HistoryTab> {
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
                     width: 50.0,
@@ -399,10 +403,23 @@ class _HistoryTabState extends State<HistoryTab> {
                     ),
                   ),
                   const HeightSpacer(height: 10.0),
-                  Text(
-                    '+106%',
-                    style: TextStyle(
-                        color: Colors.green.withOpacity(0.8), fontSize: 16.0),
+                  Row(
+                    children: [
+                      Text(
+                        historyTabController
+                            .incomeModel.value.incomeIncrementRate
+                            .toString(),
+                        style: TextStyle(
+                            color: Colors.green.withOpacity(0.8),
+                            fontSize: 16.0),
+                      ),
+                      Text(
+                        "%",
+                        style: TextStyle(
+                            color: Colors.green.withOpacity(0.8),
+                            fontSize: 16.0),
+                      ),
+                    ],
                   )
                 ],
               )
@@ -457,7 +474,7 @@ class _HistoryTabState extends State<HistoryTab> {
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
                     width: 50.0,
@@ -473,12 +490,25 @@ class _HistoryTabState extends State<HistoryTab> {
                     ),
                   ),
                   const HeightSpacer(height: 10.0),
-                  Text(
-                    '-106%',
-                    style: TextStyle(
-                        color: const Color.fromARGB(255, 163, 69, 69)
-                            .withOpacity(0.8),
-                        fontSize: 16.0),
+                  Row(
+                    children: [
+                      Text(
+                        historyTabController
+                            .incomeModel.value.visitedCountIncrementRate
+                            .toString(),
+                        style: TextStyle(
+                            color: const Color.fromARGB(255, 163, 69, 69)
+                                .withOpacity(0.8),
+                            fontSize: 16.0),
+                      ),
+                      Text(
+                        "%",
+                        style: TextStyle(
+                            color: const Color.fromARGB(255, 163, 69, 69)
+                                .withOpacity(0.8),
+                            fontSize: 16.0),
+                      ),
+                    ],
                   )
                 ],
               )
@@ -686,42 +716,23 @@ class _HistoryTabState extends State<HistoryTab> {
   }
 
   void selectionChanged(DateRangePickerSelectionChangedArgs args) {
-    int firstDayOfWeek = DateTime.sunday % 7;
-    int endDayOfWeek = (firstDayOfWeek - 1) % 7;
-    endDayOfWeek = endDayOfWeek < 0 ? 7 + endDayOfWeek : endDayOfWeek;
     PickerDateRange ranges = args.value;
     DateTime date1 = DateTime.parse(ranges.startDate.toString());
-    DateTime date2 =
-        ranges.endDate ?? DateTime.parse(ranges.startDate.toString());
-    if (date1.isAfter(date2)) {
-      var date = date1;
-      date1 = date2;
-      date2 = date;
-    }
-    int day1 = date1.weekday % 7;
-    int day2 = date2.weekday % 7;
+    DateTime date2 = DateTime(date1.year, date1.month, date1.day + 6);
+    _controller.selectedRange = PickerDateRange(date1, date2);
+    loadWeekDate(date1);
 
-    DateTime dat1 = date1.add(Duration(days: (firstDayOfWeek - day1)));
-    DateTime dat2 = date2.add(Duration(days: (endDayOfWeek - day2)));
-
-    if (!isSameDate(dat1, DateTime.parse(ranges.startDate.toString())) ||
-        !isSameDate(dat2, DateTime.parse(ranges.endDate.toString()))) {
-      _controller.selectedRange = PickerDateRange(dat1, dat2);
-      loadWeekDate(dat2);
-      Navigator.pop(context);
+    bool isSameDate(DateTime date1, DateTime date2) {
+      if (date2 == date1) {
+        return true;
+      }
+      if (date1 == null || date2 == null) {
+        return false;
+      }
+      return date1.month == date2.month &&
+          date1.year == date2.year &&
+          date1.day == date2.day;
     }
-  }
-
-  bool isSameDate(DateTime date1, DateTime date2) {
-    if (date2 == date1) {
-      return true;
-    }
-    if (date1 == null || date2 == null) {
-      return false;
-    }
-    return date1.month == date2.month &&
-        date1.year == date2.year &&
-        date1.day == date2.day;
   }
 
   pickMonth(BuildContext context) {

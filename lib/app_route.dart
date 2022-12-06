@@ -10,6 +10,7 @@ import 'package:gymui/screens/home_screen.dart';
 import 'package:gymui/screens/privacy_policy.dart';
 import 'package:gymui/screens/view_client.dart';
 import 'package:gymui/screens/view_history.dart';
+import 'package:gymui/splashscreen.dart';
 
 import 'screens/gym_photos.dart';
 import 'screens/notification_screen.dart';
@@ -48,6 +49,7 @@ class AppRouter {
   static const viewClient = '/viewClient';
   static const qrClientHistoryScreen = '/qrClientHistoryScreen';
   static const notificationScreen = '/notificationScreen';
+  static const splashScreen = '/splashScreen';
   List<GetPage> getPages = [
     GetPage(
       name: loginScreen,
@@ -136,6 +138,10 @@ class AppRouter {
     GetPage(
       name: contactUsMailScreen,
       page: () => ContactUsMailScreen(),
+    ),
+    GetPage(
+      name: splashScreen,
+      page: () => SplashScreen(),
     ),
   ];
 }
